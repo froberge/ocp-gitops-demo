@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: coffeeshop-pipeline
+  namespace: coffeeshop-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "9"
+spec:
+  project: default
+  source:
+    path: components/tekton
+    repoURL: https://github.com/RedHatWorkshops/welcome-deploy/tree/main/components/tekton
+    targetRevision: main
+  destination:
+    namespace: coffeeshop-pipeline
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
