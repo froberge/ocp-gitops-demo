@@ -1,4 +1,4 @@
 resources:
-#- ocp-gitops-sub.yaml
+- ocp-gitops-sub.yaml
 - ocp-gitops-patch.yaml
-#- rbac.yaml 
+- rbac.yaml 

@@ -2,6 +2,7 @@ bases:
 - ../../components/applications
 resources:
 - namespace.yaml
+- argocd.yaml
 # - 1.secret.yaml
 # - 2.argocd.yaml
 # - 3.rbac.yaml

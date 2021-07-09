@@ -3,4 +3,4 @@ kind: Kustomization
 
 bases:
 - ../../base
-- ../../../cluster-argocd/applicationsets
+- ../../../components/applicationsets
