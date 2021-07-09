@@ -1,3 +1,4 @@
 resources:
 - coffeeshop-pipeline.yaml
+- coffeeshop-dev.yaml
 - rbac.yaml
