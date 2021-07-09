@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/froberge/coffeeshop-deployment
+      repoURL: https://github.com/froberge/coffeeshop-demo
       revision: main
       directories:
       - path: cluster-apps/*
@@ -20,7 +20,7 @@ spec:
           prune: true
           selfHeal: true
       source:
-        repoURL: https://github.com/froberge/coffeeshop-deployment
+        repoURL: https://github.com/froberge/coffeeshop-demo
         targetRevision: main
         path: '{{path}}'
       destination:
