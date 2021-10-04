@@ -5,10 +5,10 @@ Welcome to the Introduction to ArgoCD using OpenShift Pipelines demo!
 
 [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) is a declarative, [GitOps](https://www.redhat.com/en/topics/devops/what-is-gitops) continuous delivery tool for [Kubernetes](https://kubernetes.io/). 
 
-### What is GitOps
+### GitOps
 `GitOps` is a set of practices to manage infrastructure and application configurations using [Git](Githttps://git-scm.com), an open source version control system. GitOps works by using Git as a single source of truth for declarative infrastructure and applications.
 
-## Why [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)?
+### [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
 
 Application definitions, configurations and environments should be declarative and version controlled just as we been doing with applicatins code.  Application deployment and lifecycle management should be `automated`, `auditable` and `easy to ubderstand`. 
 
@@ -22,7 +22,31 @@ Application definitions, configurations and environments should be declarative a
 
  Any change to the desired state made in git can be automatically or manually applied & reflected in the specific environment.
 
-#### Features 
+## OpenShift GitOps
+
+OpenShift GitOps is an OpenShift add-on which provides ARgo CD and other tooling to enable teams to implement Gitops workflows for cluster configuration and application delivery. 
+
+![gitops-ocp](docs/images/gitops-ocp.png)
+
+## Overview
+The tutorial is divide in different section:
+* [Learn about GitOps features](#features)
+* [Learn about GitOps concepts](#concepts)
+* [Install GitOps Operator](install-openshift-gitops)
+* [Create a Pipeline](#create-pipeline)
+* [Use OpenShift Pipelines builder to run Pipeline](#run-pipeline)
+* [Trigger a Pipeline](#trigger-pipeline)
+
+
+### Prerequisites
+
+* Any Openshift cluster 4.x or CodeReady Container base on OCP 4.3+
+* OpenShift CLI `oc` install and connected to your cluster
+* The [ArgoCd CLI](https://argo-cd.readthedocs.io/en/stable/cli_installation/) 'argocd` install
+* The [Tekton CLI](https://github.com/tektoncd/cli) `tkn` install
+* [Kustomize](https://kustomize.io/)
+
+### Features 
 * Automated deploymnet of app to a specified target environment
 * Multiple config management or tooling supports
 * Ability to manafe & deploy to multiple cluster
@@ -36,7 +60,7 @@ Application definitions, configurations and environments should be declarative a
 * Webhooks
 
 
-#### Concepts:
+### Concepts:
 
 * `Application`: A group of Kubernetes resources. It represente a Custom Resource Definition (CRD).
 * ` Application Source Type`: The tools use to build the applicaiton.
@@ -64,11 +88,5 @@ ApplicationSet controller is a sub-project of ArgoCD whih adds Application autom
 
 Each phase can contain one or more `waves` assuring ertain resourcs are healthy before other resources are sync.
 
-## OpenShift GitOps
-
-OpenShift GitOps is an OpenShift add-on which provides ARgo CD and other tooling to enable teams to implement Gitops workflows for cluster configuration and application delivery. 
-
-![gitops-ocp](docs/images/gitops-ocp.png)
-
-
+### Install OpenShift GitOps
 The operator can be installed using the Operator Hub inside the OpenShift Console. Follow [these instruction](/docs/install-gitops-operator.md) to install the operator using the console.
