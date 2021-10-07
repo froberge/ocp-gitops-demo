@@ -33,10 +33,7 @@ The tutorial is divide in different section:
 * [Learn about GitOps features](#features)
 * [Learn about GitOps concepts](#concepts)
 * [Install GitOps Operator](install-openshift-gitops)
-* [Create a Pipeline](#create-pipeline)
-* [Use OpenShift Pipelines builder to run Pipeline](#run-pipeline)
-* [Trigger a Pipeline](#trigger-pipeline)
-
+* [Deploy an application](#deploy-application)
 
 ### Prerequisites
 
@@ -86,7 +83,9 @@ ApplicationSet controller is a sub-project of ArgoCD whih adds Application autom
 1. `Sync` phase
 1. `Post-Sync` phase
 
-Each phase can contain one or more `waves` assuring ertain resourcs are healthy before other resources are sync.
+Each phase can contain one or more `waves` assuring certain resources are healthy before other resources are sync.
 
 ### Install OpenShift GitOps
 The operator can be installed using the Operator Hub inside the OpenShift Console. Follow [these instruction](/docs/install-gitops-operator.md) to install the operator using the console.
+
+### Deploy Application
