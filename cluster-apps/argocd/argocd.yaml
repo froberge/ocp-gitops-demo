@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  name: coffeeshop-argocd
-  namespace: coffeeshop-gitops
+  name: gitops-demo-argocd
+  namespace: gitops-demo-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
@@ -23,17 +23,6 @@ spec:
       enabled: false
     route:
       enabled: false
-  resourceCustomizations: |
-    bitnami.com/SealedSecret:
-      health.lua: |
-        hs = {}
-        hs.status = "Healthy"
-        hs.message = "Controller doesnt report resource status"
-        return hs
-    route.openshift.io/Route:
-      ignoreDifferences: |
-        jsonPointers:
-        - /spec/host
   resourceExclusions: |
     - apiGroups:
       - tekton.dev

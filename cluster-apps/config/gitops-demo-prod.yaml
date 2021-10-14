@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: gitops-demo-gitops
+  name: gitops-demo-prod
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   creationTimestamp: null

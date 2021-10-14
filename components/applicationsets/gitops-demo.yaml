@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: coffeeshop-demo
+  name: gitops-demo
   namespace: openshift-gitops
 spec:
   generators:
   - git:
-      repoURL: https://github.com/froberge/coffeeshop-demo
+      repoURL: https://github.com/froberge/ocp-gitops-demo
       revision: main
       directories:
       - path: cluster-apps/*
@@ -20,7 +20,7 @@ spec:
           prune: true
           selfHeal: true
       source:
-        repoURL: https://github.com/froberge/coffeeshop-demo
+        repoURL: https://github.com/froberge/ocp-gitops-demo
         targetRevision: main
         path: '{{path}}'
       destination:

@@ -1,8 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin-coffeeshop-gitops
-  namespace: coffeeshop-gitops
+  name: admin-gitops-demo-dev
+  namespace: gitops-demo-dev
   annotations:
     argocd.argoproj.io/sync-wave: "2"
   creationTimestamp: null
@@ -18,8 +18,8 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin-coffeeshop-pipeline
-  namespace: coffeeshop-pipeline
+  name: admin-gitops-demo-pipelines
+  namespace: gitops-demo-pipelines
   annotations:
     argocd.argoproj.io/sync-wave: "2"
   creationTimestamp: null
@@ -35,8 +35,8 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin-coffeeshop-dev
-  namespace: coffeeshop-dev
+  name: admin-gitops-demo-prod
+  namespace: gitops-demo-prod
   annotations:
     argocd.argoproj.io/sync-wave: "2"
   creationTimestamp: null

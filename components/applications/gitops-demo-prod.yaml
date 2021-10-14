@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: coffeeshop-pipeline
-  namespace: coffeeshop-gitops
+  name: gitops-demo-prod
+  namespace: gitops-demo-prod
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 spec:
   project: default
   source:
-    path: components/tekton
-    repoURL: https://github.com/RedHatWorkshops/welcome-deploy/tree/main/components/tekton
+    path: 
+    repoURL:
     targetRevision: main
   destination:
-    namespace: coffeeshop-pipeline
+    namespace: gitops-demo-prod
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
