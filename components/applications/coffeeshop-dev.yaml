@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-demo-dev
-  namespace: gitops-demo-dev
+  name: coffeeshop-dev
+  namespace: coffeeshop-dev
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 spec:
   project: default
   source:
-    path: app/overlays/dev/
-    repoURL: https://github.com/RedHatWorkshops/welcome-deploy/
+    path: 
+    repoURL: 
     targetRevision: main
   destination:
-    namespace: gitops-demo-dev
+    namespace: coffeeshop-dev
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

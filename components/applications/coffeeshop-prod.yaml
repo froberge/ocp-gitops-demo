@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-demo-prod
-  namespace: gitops-demo-prod
+  name: coffeeshop-prod
+  namespace: coffeeshop-prod
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 spec:
@@ -12,7 +12,7 @@ spec:
     repoURL:
     targetRevision: main
   destination:
-    namespace: gitops-demo-prod
+    namespace: coffeeshop-prod
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

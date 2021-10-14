@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  name: gitops-demo-argocd
-  namespace: gitops-demo-gitops
+  name: coffeeshop-argocd
+  namespace: coffeeshop-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
