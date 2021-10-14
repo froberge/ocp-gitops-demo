@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: gitops-demo-prod
+  name: coffeeshop-prod
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   creationTimestamp: null

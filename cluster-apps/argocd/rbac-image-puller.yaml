@@ -3,8 +3,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   creationTimestamp: null
-  name: system:image-puller:gitops-demo-dev
-  namespace: gitops-demo-pipelines
+  name: system:image-puller:coffeeshop-dev
+  namespace: coffeeshop-pipelines
   annotations:
     argocd.argoproj.io/sync-wave: "5"
 roleRef:
@@ -14,14 +14,14 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
-  name: system:serviceaccounts:gitops-demo-dev
+  name: system:serviceaccounts:coffeeshop-dev
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   creationTimestamp: null
-  name: system:image-puller:gitops-demo-prod
-  namespace: gitops-demo-pipelines
+  name: system:image-puller:coffeeshop-prod
+  namespace: coffeeshop-pipelines
   annotations:
     argocd.argoproj.io/sync-wave: "5"
 roleRef:
@@ -31,5 +31,5 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
-  name: system:serviceaccounts:gitops-demo-prod
+  name: system:serviceaccounts:coffeeshop-prod
 ...
