@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: coffeeshop-dev
-  namespace: coffeeshop-dev
+  namespace: coffeeshop-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "9"
 spec:
