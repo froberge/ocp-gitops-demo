@@ -8,11 +8,11 @@ metadata:
 spec:
   project: default
   source:
-    path: app/overlays/dev/
-    repoURL: https://github.com/RedHatWorkshops/welcome-deploy/
+    path: tekton
+    repoURL: https://github.com/froberge/ocp-pipeline-demo/
     targetRevision: main
   destination:
-    namespace: coffeeshop-dev
+    namespace: coffeeshop-pipeline
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
