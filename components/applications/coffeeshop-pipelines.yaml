@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/froberge/coffeeshop-deploy
     targetRevision: main
   destination:
-    namespace: coffeeshop-pipeline
+    namespace: coffeeshop-pipelines
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
