@@ -4,12 +4,12 @@ metadata:
   name: coffeeshop-pipelines
   namespace: coffeeshop-gitops
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "7"
 spec:
   project: default
   source:
     path: tekton
-    repoURL: https://github.com/froberge/ocp-pipeline-demo/
+    repoURL: https://github.com/froberge/coffeeshop-deploy
     targetRevision: main
   destination:
     namespace: coffeeshop-pipeline
