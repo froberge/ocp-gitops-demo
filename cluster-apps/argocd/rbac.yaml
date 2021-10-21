@@ -9,15 +9,12 @@ rules:
     resources:
       - "*"
     verbs:
-      - 'list'
-      - 'watch'
-      - 'get'
-      - 'patch'
+      - '*'
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: argocd-extended-clusterrole
+  name: argocd-extended-clusterrolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

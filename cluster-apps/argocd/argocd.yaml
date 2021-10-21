@@ -1,28 +1,45 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   name: coffeeshop-argocd
   namespace: coffeeshop-gitops
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
+  server:
+    insecure: true
+    route:
+      enabled: true
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: edge 
   applicationSet: {}
-  controller:
-    processors: {}
-  grafana:
-    enabled: false
-    ingress:
-      enabled: false
-    route:
-      enabled: false
-  ha:
-    enabled: false
-  prometheus:
-    enabled: false
-    ingress:
-      enabled: false
-    route:
-      enabled: false
+  resourceCustomizations: |
+    route.openshift.io/Route:
+      ignoreDifferences: |
+        jsonPointers:
+        - /status/ingress
+    PersistentVolumeClaim:
+      health.lua: |
+        hs = {}
+        if obj.status ~= nil then
+          if obj.status.phase ~= nil then
+            if obj.status.phase == "Pending" then
+              hs.status = "Healthy"
+              hs.message = obj.status.phase
+              return hs
+            end
+            if obj.status.phase == "Bound" then
+              hs.status = "Healthy"
+              hs.message = obj.status.phase
+              return hs
+            end
+          end
+        end
+        hs.status = "Progressing"
+        hs.message = "Waiting for certificate"
+        return hs
   resourceExclusions: |
     - apiGroups:
       - tekton.dev
@@ -31,17 +48,10 @@ spec:
       kinds:
       - TaskRun
       - PipelineRun
-  server:
-    autoscale:
-      enabled: false
-    grpc:
-      ingress:
-        enabled: false
-    ingress:
-      enabled: false
-    insecure: true
-    route:
-      enabled: true
-      tls:
-        insecureEdgeTerminationPolicy: Redirect
-        termination: edge
+    - apiGroups:
+      - compliance.openshift.io
+      clusters:
+      - '*'
+      kinds:
+      - ComplianceCheckResult
+      - ComplianceRemediation
