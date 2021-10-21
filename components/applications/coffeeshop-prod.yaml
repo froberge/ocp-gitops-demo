@@ -3,13 +3,11 @@ kind: Application
 metadata:
   name: coffeeshop-prod
   namespace: coffeeshop-gitops
-  annotations:
-    argocd.argoproj.io/sync-wave: "9"
 spec:
   project: default
   source:
-    path: 
-    repoURL:
+    path: coffeeshop-app/overlays/prod/
+    repoURL: https://github.com/froberge/coffeeshop-deploy
     targetRevision: main
   destination:
     namespace: coffeeshop-prod

@@ -5,8 +5,6 @@ metadata:
   creationTimestamp: null
   name: system:image-puller:coffeeshop-dev
   namespace: coffeeshop-pipelines
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -22,8 +20,6 @@ metadata:
   creationTimestamp: null
   name: system:image-puller:coffeeshop-prod
   namespace: coffeeshop-pipelines
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -3,12 +3,10 @@ kind: Application
 metadata:
   name: coffeeshop-pipelines
   namespace: coffeeshop-gitops
-  annotations:
-    argocd.argoproj.io/sync-wave: "7"
 spec:
   project: default
   source:
-    path: tekton
+    path: tekton/
     repoURL: https://github.com/froberge/coffeeshop-deploy
     targetRevision: main
   destination:
