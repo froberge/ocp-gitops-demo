@@ -1,11 +1,9 @@
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: admin-coffeeshop-dev
   namespace: coffeeshop-dev
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
-  creationTimestamp: null
 roleRef:
   name: admin
   kind: ClusterRole
@@ -20,9 +18,6 @@ kind: RoleBinding
 metadata:
   name: admin-coffeeshop-pipelines
   namespace: coffeeshop-pipelines
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
-  creationTimestamp: null
 roleRef:
   name: admin
   kind: ClusterRole
@@ -37,9 +32,6 @@ kind: RoleBinding
 metadata:
   name: admin-coffeeshop-prod
   namespace: coffeeshop-prod
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
-  creationTimestamp: null
 roleRef:
   name: admin
   kind: ClusterRole
@@ -48,3 +40,4 @@ subjects:
 - name: developer
   kind: User
   apiGroup: rbac.authorization.k8s.io
+...
