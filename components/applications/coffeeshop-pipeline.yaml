@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: coffeeshop-pipelines
+  name: coffeeshop-pipeline
   namespace: coffeeshop-gitops
 spec:
   project: default
@@ -10,7 +10,7 @@ spec:
     repoURL: https://github.com/froberge/coffeeshop-deploy
     targetRevision: main
   destination:
-    namespace: coffeeshop-pipelines
+    namespace: coffeeshop-pipeline
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

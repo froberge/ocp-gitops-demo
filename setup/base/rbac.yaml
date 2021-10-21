@@ -1,8 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cluster-admin
-  creationTimestamp: null
+  name: cluster-admin-0
 roleRef:
   name: cluster-admin
   kind: ClusterRole

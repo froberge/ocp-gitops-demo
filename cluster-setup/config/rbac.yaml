@@ -16,8 +16,8 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin-coffeeshop-pipelines
-  namespace: coffeeshop-pipelines
+  name: admin-coffeeshop-pipeline
+  namespace: coffeeshop-pipeline
 roleRef:
   name: admin
   kind: ClusterRole

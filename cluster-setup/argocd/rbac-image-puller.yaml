@@ -2,9 +2,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  creationTimestamp: null
   name: system:image-puller:coffeeshop-dev
-  namespace: coffeeshop-pipelines
+  namespace: coffeeshop-pipeline
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -17,9 +16,8 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  creationTimestamp: null
   name: system:image-puller:coffeeshop-prod
-  namespace: coffeeshop-pipelines
+  namespace: coffeeshop-pipeline
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

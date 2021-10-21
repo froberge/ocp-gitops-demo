@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: coffeeshop-demo
+  name: gitops-demo
   namespace: openshift-gitops
 spec:
   generators:
@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/froberge/ocp-gitops-demo
       revision: main
       directories:
-      - path: cluster-apps/*
+      - path: cluster-setup/*
   template:
     metadata:
       name: '{{path.basename}}'

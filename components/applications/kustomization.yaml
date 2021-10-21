@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
 - coffeeshop-dev.yaml
 - coffeeshop-prod.yaml
-- coffeeshop-pipelines.yaml
+- coffeeshop-pipeline.yaml
