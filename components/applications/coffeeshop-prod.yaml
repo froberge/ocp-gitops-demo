@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    path: coffeeshop-app/overlays/prod/
+    path: coffeeshop/overlays/prod/
     repoURL: https://github.com/froberge/coffeeshop-deploy
     targetRevision: main
   destination:

@@ -50,8 +50,6 @@ spec:
       - PipelineRun
     - apiGroups:
       - compliance.openshift.io
-      clusters:
-      - '*'
       kinds:
       - ComplianceCheckResult
       - ComplianceRemediation
