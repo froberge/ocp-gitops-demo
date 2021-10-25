@@ -5,5 +5,5 @@ bases:
 - github.com/froberge/openshift-catalog/openshift-gitops/overlays/stable?ref=main
 
 resources:
-- openshift-gitops-path.yaml
+- ocp-gitops-patch.yaml
 - rbac.yaml 
