@@ -27,7 +27,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin-coffeeshop-gitops
+  name: argocd-admin-coffeeshop-gitops
   namespace: coffeeshop-gitops
 roleRef:
   kind: ClusterRole
@@ -41,7 +41,7 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin-coffeeshop-pipeline
+  name: argocd-admin-coffeeshop-pipeline
   namespace: coffeeshop-pipeline
 roleRef:
   kind: ClusterRole
@@ -55,7 +55,7 @@ subjects:
 # apiVersion: rbac.authorization.k8s.io/v1
 # kind: RoleBinding
 # metadata:
-#   name: admin-coffeeshop-dev
+#   name: argocd-admin-coffeeshop-dev
 #   namespace: coffeeshop-dev
 # roleRef:
 #   kind: ClusterRole
@@ -69,7 +69,7 @@ subjects:
 # apiVersion: rbac.authorization.k8s.io/v1
 # kind: RoleBinding
 # metadata:
-#   name: admin-coffeeshop-prod
+#   name: argocd-admin-coffeeshop-prod
 #   namespace: coffeeshop-prod
 # roleRef:
 #   kind: ClusterRole
