@@ -5,4 +5,4 @@ resources:
 - coffeeshop-dev.yaml
 - coffeeshop-prod.yaml
 - coffeeshop-pipeline.yaml
-- rbac.yaml
+- rbac-developer.yaml
