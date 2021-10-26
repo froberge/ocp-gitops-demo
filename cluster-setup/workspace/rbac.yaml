@@ -5,28 +5,27 @@ metadata:
   name: admin-coffeeshop-dev
   namespace: coffeeshop-dev
 roleRef:
-  name: admin
   kind: ClusterRole
+  name: admin
   apiGroup: rbac.authorization.k8s.io
 subjects:
-- name: developer
-  kind: User
+- kind: User
+  name: developer
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  creationTimestamp: null
   name: admin-coffeeshop-gitops
   namespace: coffeeshop-gitops
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: admin
+  apiGroup: rbac.authorization.k8s.io
 subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
+- kind: User
   name: developer
+  apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -34,12 +33,12 @@ metadata:
   name: admin-coffeeshop-pipeline
   namespace: coffeeshop-pipeline
 roleRef:
-  name: admin
   kind: ClusterRole
+  name: admin
   apiGroup: rbac.authorization.k8s.io
 subjects:
-- name: developer
-  kind: User
+- kind: User
+  name: developer
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -48,11 +47,11 @@ metadata:
   name: admin-coffeeshop-prod
   namespace: coffeeshop-prod
 roleRef:
-  name: admin
   kind: ClusterRole
+  name: admin
   apiGroup: rbac.authorization.k8s.io
 subjects:
-- name: developer
-  kind: User
+- kind: User
+  name: developer
   apiGroup: rbac.authorization.k8s.io
 ...

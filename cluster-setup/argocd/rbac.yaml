@@ -14,11 +14,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: argocd-extended-clusterrole
+  name: argocd-extended-clusterrolebinding
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: argocd-extended-clusterrole
+  apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
   name: coffeeshop-argocd-argocd-application-controller
@@ -30,9 +30,9 @@ metadata:
   name: admin
   namespace: coffeeshop-gitops
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: argocd-extended-clusterrole
+  apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
   name: coffeeshop-argocd-argocd-application-controller
@@ -44,9 +44,9 @@ metadata:
   name: admin
   namespace: coffeeshop-pipeline
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: argocd-extended-clusterrole
+  apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
   name: coffeeshop-argocd-argocd-application-controller
@@ -58,9 +58,9 @@ metadata:
   name: admin
   namespace: coffeeshop-dev
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: argocd-extended-clusterrole
+  apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
   name: coffeeshop-argocd-argocd-application-controller
@@ -72,9 +72,9 @@ metadata:
   name: admin
   namespace: coffeeshop-prod
 roleRef:
-  apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: argocd-extended-clusterrole
+  apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
   name: coffeeshop-argocd-argocd-application-controller
