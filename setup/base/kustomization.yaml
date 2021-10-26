@@ -6,4 +6,4 @@ bases:
 
 resources:
 - ocp-gitops-patch.yaml
-- rbac.yaml 
+- rbac.yaml

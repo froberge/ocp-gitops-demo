@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  name: coffeeshop-argocd
+  name: argocd
   namespace: coffeeshop-gitops
 spec:
   server:
@@ -12,9 +12,8 @@ spec:
     route:
       enabled: true
       tls:
+        termination: edge
         insecureEdgeTerminationPolicy: Redirect
-        termination: edge 
-  applicationSet: {}
   resourceCustomizations: |
     route.openshift.io/Route:
       ignoreDifferences: |
@@ -44,7 +43,6 @@ spec:
     - apiGroups:
       - tekton.dev
       kinds:
-      - TaskRun
       - PipelineRun
     - apiGroups:
       - compliance.openshift.io
