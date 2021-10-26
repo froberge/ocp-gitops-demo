@@ -100,11 +100,11 @@ password: need to be retrieve from secret
 
 Retrive the required information with the command line:
 
-#### Retrive the argoCD route
+#### Retrive the cluster argoCD route
 ```
 oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'
-
 ```
+
 #### Retrieve the password.
 ```
 oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
@@ -113,12 +113,13 @@ oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
 
 ### Deploy Application
 
-#### Retrive the application argoCD route
+#### Retrive the development argoCD route
 ```
  oc get route coffeeshop-argocd-server -n coffeeshop-gitops -o jsonpath='{.spec.host}{"\n"}'
  ```
 
 #### Retrieve the password.
 ```
-oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
+oc extract secret/argocd-cluster -n coffeeshop-gitops --to=-
 ```
+
