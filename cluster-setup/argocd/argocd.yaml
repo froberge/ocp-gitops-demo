@@ -5,6 +5,7 @@ metadata:
     argocd.argoproj.io/sync-options: Prune=false
     argocd.argoproj.io/compare-options: IgnoreExtraneous
   name: coffeeshop-argocd
+  namespace: coffeeshop-gitops
 spec:
   server:
     insecure: true
