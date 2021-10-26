@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   annotations:
-    openshift.io/description: Tekton pipelines
-    openshift.io/display-name: Tekton Pipeline
+    openshift.io/description: Tekton pipelines for coffeeshop project
+    openshift.io/display-name: Tekton pipelines for coffeeshop project
   name: coffeeshop-pipeline
 spec: {}
 status: {}
