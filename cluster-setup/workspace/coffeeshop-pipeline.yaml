@@ -1,6 +1,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  annotations:
+    openshift.io/description: Tekton pipelines
+    openshift.io/display-name: Tekton Pipeline
   name: coffeeshop-pipeline
 spec: {}
 status: {}
