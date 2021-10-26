@@ -27,11 +27,11 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin
+  name: admin-coffeeshop-gitops
   namespace: coffeeshop-gitops
 roleRef:
   kind: ClusterRole
-  name: argocd-extended-clusterrole
+  name: admin
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
@@ -41,42 +41,42 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: admin
+  name: admin-coffeeshop-pipeline
   namespace: coffeeshop-pipeline
 roleRef:
   kind: ClusterRole
-  name: argocd-extended-clusterrole
-  apiGroup: rbac.authorization.k8s.io
-subjects:
-- kind: ServiceAccount
-  name: coffeeshop-argocd-argocd-application-controller
-  namespace: coffeeshop-gitops
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
   name: admin
-  namespace: coffeeshop-dev
-roleRef:
-  kind: ClusterRole
-  name: argocd-extended-clusterrole
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
   name: coffeeshop-argocd-argocd-application-controller
   namespace: coffeeshop-gitops
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: admin
-  namespace: coffeeshop-prod
-roleRef:
-  kind: ClusterRole
-  name: argocd-extended-clusterrole
-  apiGroup: rbac.authorization.k8s.io
-subjects:
-- kind: ServiceAccount
-  name: coffeeshop-argocd-argocd-application-controller
-  namespace: coffeeshop-gitops
+# ---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+#   name: admin-coffeeshop-dev
+#   namespace: coffeeshop-dev
+# roleRef:
+#   kind: ClusterRole
+#   name: admin
+#   apiGroup: rbac.authorization.k8s.io
+# subjects:
+# - kind: ServiceAccount
+#   name: coffeeshop-argocd-argocd-application-controller
+#   namespace: coffeeshop-gitops
+# ---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+#   name: admin-coffeeshop-prod
+#   namespace: coffeeshop-prod
+# roleRef:
+#   kind: ClusterRole
+#   name: admin
+#   apiGroup: rbac.authorization.k8s.io
+# subjects:
+# - kind: ServiceAccount
+#   name: coffeeshop-argocd-argocd-application-controller
+#   namespace: coffeeshop-gitops
 ...
