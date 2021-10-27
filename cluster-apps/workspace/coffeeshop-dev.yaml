@@ -1,6 +1,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  annotations:
+    openshift.io/description: Development environment
+    openshift.io/display-name: Development environment
   name: coffeeshop-dev
 spec: {}
 status: {}

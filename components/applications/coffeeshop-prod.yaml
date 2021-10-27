@@ -4,7 +4,7 @@ metadata:
   name: coffeeshop-prod
   namespace: coffeeshop-gitops
 spec:
-  project: default
+  project: coffeeshop
   source:
     path: coffeeshop/overlays/prod/
     repoURL: https://github.com/froberge/coffeeshop-deploy

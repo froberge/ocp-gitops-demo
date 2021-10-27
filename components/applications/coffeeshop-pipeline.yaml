@@ -4,7 +4,7 @@ metadata:
   name: coffeeshop-pipeline
   namespace: coffeeshop-gitops
 spec:
-  project: default
+  project: coffeeshop
   source:
     path: tekton/
     repoURL: https://github.com/froberge/coffeeshop-deploy
