@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: openshift-gitops
+
 resources:
 - gitops-demo-project.yaml
 - gitops-demo.yaml
