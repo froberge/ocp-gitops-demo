@@ -115,7 +115,7 @@ oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
 
 #### Retrive the development argoCD route
 ```
- oc get route coffeeshop-argocd-server -n coffeeshop-gitops -o jsonpath='{.spec.host}{"\n"}'
+ oc get route argocd-server -n coffeeshop-gitops -o jsonpath='{.spec.host}{"\n"}'
  ```
 
 #### Retrieve the password.

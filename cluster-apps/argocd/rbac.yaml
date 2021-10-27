@@ -5,9 +5,9 @@ metadata:
   name: argocd-extended-clusterrole
 rules:
   - apiGroups:
-    - "*"
+      - '*'
     resources:
-      - "*"
+      - '*.*'
     verbs:
       - '*'
 ---
