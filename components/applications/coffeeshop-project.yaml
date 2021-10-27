@@ -2,6 +2,7 @@ kind: AppProject
 apiVersion: argoproj.io/v1alpha1
 metadata:
   name: coffeeshop
+  namespace: coffeeshop-gitops
 spec:
   clusterResourceWhitelist:
     - group: '*'
