@@ -1,33 +1,10 @@
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: Prune=false
-  name: openshift-gitops-argocd-extended-clusterrole
-rules:
-  - apiGroups:
-    - ""
-    resources:
-      - resourcequotas
-      - limitranges
-      - serviceaccounts
-    verbs:
-      - '*'
-  - apiGroups:
-    - argoproj.io
-    resources:
-      - argocds
-    verbs:
-      - '*'
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: openshift-gitops-argocd-extended-clusterrolebinding
+  name: openshift-gitops-argocd-clusterrolebinding
 roleRef:
   kind: ClusterRole
-  name: openshift-gitops-argocd-extended-clusterrole
+  name: cluster-admin
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
