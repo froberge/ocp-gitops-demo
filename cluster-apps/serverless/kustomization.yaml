@@ -3,4 +3,4 @@ kind: Kustomization
 
 bases:
 - github.com/froberge/openshift-catalog/openshift-serverless/operator/overlays/stable?ref=main
-# - github.com/froberge/openshift-catalog/openshift-serverless/object/kn-serving/overlays/default?ref=main
+- github.com/froberge/openshift-catalog/openshift-serverless/object/kn-serving/overlays/default?ref=main
