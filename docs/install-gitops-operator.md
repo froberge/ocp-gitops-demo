@@ -49,6 +49,7 @@ echo $argoURL
 ![Top menu](images/top-menu.png)
 
 Select Cluster Argo CD, this should bring you to the Argo CD Cluster:
+
 ![argoCD cluster](images/argoCD-cluster.png)
 
 Enter the credential found above:
