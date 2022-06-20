@@ -152,7 +152,7 @@ oc extract secret/argocd-cluster -n coffeeshop-gitops --to=-
 
 * For the UI run this pipeline:
 ```
-c create -f tekton/pipelineruns/coffeeshop-run.yaml
+oc create -f tekton/pipelineruns/coffeeshop-run.yaml
 ```
 
 * For the backend run this pipeline:
