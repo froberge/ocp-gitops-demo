@@ -12,7 +12,3 @@ spec:
     namespace: coffeeshop-prod
     server: https://kubernetes.default.svc
   syncPolicy: {}
-    # automated:
-    #   prune: true
-    #   selfHeal: false
-    #   auto-synch: false
