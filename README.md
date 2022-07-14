@@ -112,56 +112,70 @@ This demo install the `ArgoCD` operator as well as some cluster tenants to demon
 
 ### Steps to setup the cluster
 
-1. Clone the project locally.
-2. From the project, run the following Kustomize to initialize the project and create the required elements.
-```
-until oc apply -k setup/overlays/demo
-do
-  sleep 10
-done
-```
-3. `Retrive the cluster ArgoCD route`
-```
-oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'
-```
+1.  Clone the project locally.
+2.  From the project, run the following Kustomize to initialize the project and create the required elements.
+    ```
+    until oc apply -k setup/overlays/demo
+    do
+      sleep 10
+    done
+    ```
+3.  Retrive the cluster ArgoCD route
+    ```
+    oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'
+    ```
 
-:information_source: The cluster ArgoCD can also be access directly from OpenShift
-![ocp-start-argo](docs/images/ocp-argocd-access.png)
+    :information_source: The cluster ArgoCD can also be access directly from OpenShift
+    ![ocp-start-argo](docs/images/ocp-argocd-access.png)
 
-4. Retrieve the cluster ArgoCD password
-```
-oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
-```
+4.  Retrieve the cluster ArgoCD password
+    ```
+    oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-
+    ```
 
 
-5. Retrive the development ArgoCD route
-```
- oc get route argocd-server -n coffeeshop-gitops -o jsonpath='{.spec.host}{"\n"}'
- ```
+5.  Retrive the development ArgoCD route
+    ```
+    oc get route argocd-server -n coffeeshop-gitops -o jsonpath='{.spec.host}{"\n"}'
+    ```
 
 6. Retrieve the development ArgoCD password
-```
-oc extract secret/argocd-cluster -n coffeeshop-gitops --to=-
-```
+    ```
+    oc extract secret/argocd-cluster -n coffeeshop-gitops --to=-
+    ```
 
 :tada: We now have ArgoCD, Tekton and the requirer project needed to run the project. Any change can now be made from a GitHub push and will be reflected on the cluster.
 
-### Steps to set up application.
+## Get the application running.
 
-1. From the [Coffee Deploy](https://github.com/froberge/coffeeshop-deploy) run the Tekton pipeline run to install the different component needed.
+The project should be in deprecated mode in ArgoCD since the application as not been build yet. We can do this by running the pipelines.
 
-* For the UI run this pipeline:
-```
-oc create -f tekton/pipelineruns/coffeeshop-run.yaml
-```
+1.  From the code in [Coffee Deploy](https://github.com/froberge/coffeeshop-deploy) run the Tekton pipeline run to install the different component needed.
 
-* For the backend run this pipeline:
-```
-oc create -f tekton/pipelineruns/product-service-run.yaml
-```
+    * To build the UI.
+      ```
+      oc create -f tekton/pipelineruns/coffeeshop-run.yaml -n coffeeshop-pipeline
+      ```
 
-2. Populate the database
+    * To build the backend.
+      ```
+      oc create -f tekton/pipelineruns/product-service-run.yaml -n coffeeshop-pipeline
+      ```
+1.  Populate the database
+    1.  [Connect to the database](https://github.com/froberge/coffeeshop-documentation/tree/master/docs/populate-db.md)
 
-    1. [Connect to the database](https://github.com/froberge/coffeeshop-documentation/tree/master/docs/populate-db.md)
+    1.  Populate the Product Database by running the [following scripts](https://github.com/froberge/coffeeshop-documentation/blob/master/dbscripts/product-schema/createInsertProduct.sql)
 
-    2. Populate the Product Database by running the [following scripts](https://github.com/froberge/coffeeshop-documentation/blob/master/dbscripts/product-schema/createInsertProduct.sql)
+
+1.  Connect to the UI and see what happens. The Menu should be empty.
+![empty-menu](docs/images/empty-menu-ui.png)
+1.  __To Fix__, we need to change the URL in the `ConfigMaps` _coffeeshop-config_.
+    * First, change the URL from the OpenShift Web Console.
+    _This shouldn't works since it will be drifting from the Git config. ArgoCD will reverted to what it originally was._
+
+    * Now change the value in the repository and push the change. 
+    _Argo should synch the project. Now redeploy the app and the menu should be appearing._
+    ![full-menu](docs/images/full-menu-ui.png)
+
+:warning: All the configuration changes are control by ArgoCD and need to be reflected form the repository.`Git as a single source of truth.`
+  
