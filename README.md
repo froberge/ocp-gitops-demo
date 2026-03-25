@@ -52,6 +52,8 @@ The tutorial is divide in different section:
 * The [ArgoCd CLI](https://argo-cd.readthedocs.io/en/stable/cli_installation/) 'argocd` install
 * The [Tekton CLI](https://github.com/tektoncd/cli) `tkn` install
 * [Kustomize](https://kustomize.io/)
+* The OpenShift-pipeline operator install.
+* The OpenShift-GitOps operator install.
 
 ## ArgoCD Features 
 * Automated deploymnet of app to a specified target environment
