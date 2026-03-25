@@ -12,7 +12,7 @@ Then, go to the `Operators -> OperatorHub`. You should now see a list of availab
 
 To facilitate the process, in the `Filter by keyword...`, type OpenShift GitOps to find the required operator:
 
-![GitOps Operator](images/gitOps-operator.png)
+![GitOps Operator](images/gitops-operator.png)
 
 Click on the Openshift GitOps operator to start the installation.  Leave the default setting and click install to start the installation process.
 

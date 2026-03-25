@@ -42,7 +42,7 @@ The tutorial is divide in different section:
 * [Prerequisites](#prerequisites)
 * [Learn about ArgoCD features](#argocd-features)
 * [Learn about ArgoCD concepts](#argocd-concepts)
-* [Install GitOps Operator](install-openshift-gitops)
+* [Install GitOps Operator](/docs/install-gitops-operator.md)
 * [Deploying the demo](#deploying-the-demo)
 
 ## Prerequisites
